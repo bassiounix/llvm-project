@@ -659,6 +659,19 @@ add_entrypoint_object(
 )
 
 add_entrypoint_object(
+  fabsbf16
+  SRCS
+    fabsbf16.cpp
+  HDRS
+    ../fabsbf16.h
+  DEPENDS
+    libc.src.__support.macros.properties.types
+    libc.src.__support.FPUtil.basic_operations
+  COMPILE_OPTIONS
+    -O3
+)
+
+add_entrypoint_object(
   fabsf16
   SRCS
     fabsf16.cpp
@@ -4015,7 +4028,7 @@ add_entrypoint_object(
     libc.src.__support.FPUtil.polyeval
     libc.src.__support.FPUtil.sqrt
     libc.src.__support.macros.optimization
-    libc.src.__support.macros.properties.types  
+    libc.src.__support.macros.properties.types
 )
 
 add_entrypoint_object(
@@ -4051,7 +4064,7 @@ add_entrypoint_object(
     libc.src.__support.FPUtil.polyeval
     libc.src.__support.FPUtil.sqrt
     libc.src.__support.macros.optimization
-    libc.src.__support.macros.properties.types  
+    libc.src.__support.macros.properties.types
 )
 
 add_entrypoint_object(

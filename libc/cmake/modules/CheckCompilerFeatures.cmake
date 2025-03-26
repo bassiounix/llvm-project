@@ -9,6 +9,7 @@ set(
     "builtin_fmaxf16_fminf16"
     "builtin_round"
     "builtin_roundeven"
+    "bfloat16"
     "float16"
     "float16_conversion"
     "float128"
@@ -104,7 +105,9 @@ foreach(feature IN LISTS ALL_COMPILER_FEATURES)
 
   if(has_feature)
     list(APPEND AVAILABLE_COMPILER_FEATURES ${feature})
-    if(${feature} STREQUAL "float16")
+    if(${feature} STREQUAL "bfloat16")
+      set(LIBC_TYPES_HAS_BFLOAT16 TRUE)
+    elseif(${feature} STREQUAL "float16")
       set(LIBC_TYPES_HAS_FLOAT16 TRUE)
     elseif(${feature} STREQUAL "float16_conversion")
       add_compile_definitions(__LIBC_USE_FLOAT16_CONVERSION)

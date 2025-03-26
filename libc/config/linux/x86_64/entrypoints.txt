@@ -645,6 +645,13 @@ if(LIBC_TYPES_HAS_CFLOAT16)
   )
 endif()
 
+if(LIBC_TYPES_HAS_BFLOAT16)
+  list(APPEND TARGET_LIBM_ENTRYPOINTS
+    # math.h C23 bfloat16 entrypoints
+    libc.src.math.fabsbf16
+  )
+endif()
+
 if(LIBC_TYPES_HAS_FLOAT16)
   list(APPEND TARGET_LIBM_ENTRYPOINTS
     # math.h C23 _Float16 entrypoints

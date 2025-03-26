@@ -32,6 +32,10 @@ public:
                               ,
                               float16
 #endif
+#ifdef LIBC_TYPES_HAS_BFLOAT16
+                              ,
+                              bfloat16
+#endif
 #ifdef LIBC_TYPES_HAS_FLOAT128
                               ,
                               float128

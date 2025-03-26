@@ -556,6 +556,13 @@ functions:
     return_type: double
     arguments:
       - type: double
+  - name: fabsbf16
+    standards:
+      - stdc
+    return_type: __bf16
+    arguments:
+      - type: __bf16
+    guard: LIBC_TYPES_HAS_BFLOAT16
   - name: fabsf
     standards:
       - stdc

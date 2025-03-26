@@ -12,6 +12,7 @@
 
 #include "hdr/float_macros.h"                      // LDBL_MANT_DIG
 #include "include/llvm-libc-macros/float16-macros.h" // LIBC_TYPES_HAS_FLOAT16
+#include "include/llvm-libc-macros/bfloat16-macros.h" // LIBC_TYPES_HAS_BFLOAT16
 #include "include/llvm-libc-types/float128.h"        // float128
 #include "src/__support/macros/properties/architectures.h"
 #include "src/__support/macros/properties/compiler.h"
@@ -52,6 +53,14 @@
 #ifdef LIBC_TYPES_HAS_FLOAT16
 // Type alias for internal use.
 using float16 = _Float16;
+#endif // LIBC_TYPES_HAS_FLOAT16
+
+// -- bfloat16 support ---------------------------------------------------------
+// LIBC_TYPES_HAS_BFLOAT16 is provided by
+// "include/llvm-libc-macros/bfloat16-macros.h"
+#ifdef LIBC_TYPES_HAS_BFLOAT16
+// Type alias for internal use.
+using bfloat16 = __bf16;
 #endif // LIBC_TYPES_HAS_FLOAT16
 
 // -- float128 support --------------------------------------------------------

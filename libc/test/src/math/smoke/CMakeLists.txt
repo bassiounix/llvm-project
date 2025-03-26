@@ -185,6 +185,18 @@ add_fp_unittest(
 )
 
 add_fp_unittest(
+  fabsbf16_test
+  SUITE
+    libc-math-smoke-tests
+  SRCS
+    fabsbf16_test.cpp
+  HDRS
+    FAbsTest.h
+  DEPENDS
+    libc.src.math.fabsbf16
+)
+
+add_fp_unittest(
   fabsf16_test
   SUITE
     libc-math-smoke-tests
@@ -3965,7 +3977,7 @@ add_fp_unittest(
     asinf16_test.cpp
   DEPENDS
     libc.src.errno.errno
-    libc.src.math.asinf16  
+    libc.src.math.asinf16
 )
 
 add_fp_unittest(
@@ -3988,7 +4000,7 @@ add_fp_unittest(
     acosf16_test.cpp
   DEPENDS
     libc.src.errno.errno
-    libc.src.math.acosf16  
+    libc.src.math.acosf16
 )
 
 add_fp_unittest(

@@ -38,6 +38,7 @@ enum class FPType {
   IEEE754_Binary64,
   IEEE754_Binary128,
   X86_Binary80,
+  Brain_Binray16,
 };
 
 // The classes hierarchy is as follows:
@@ -136,6 +137,14 @@ template <> struct FPLayout<FPType::X86_Binary80> {
   LIBC_INLINE_VAR static constexpr int EXP_LEN = 15;
   LIBC_INLINE_VAR static constexpr int SIG_LEN = 64;
   LIBC_INLINE_VAR static constexpr int FRACTION_LEN = SIG_LEN - 1;
+};
+
+template <> struct FPLayout<FPType::Brain_Binray16> {
+  using StorageType = uint16_t;
+  LIBC_INLINE_VAR static constexpr int SIGN_LEN = 1;
+  LIBC_INLINE_VAR static constexpr int EXP_LEN = 8;
+  LIBC_INLINE_VAR static constexpr int SIG_LEN = 7;
+  LIBC_INLINE_VAR static constexpr int FRACTION_LEN = SIG_LEN;
 };
 
 // FPStorage derives useful constants from the FPLayout above.
@@ -796,6 +805,10 @@ template <typename T> LIBC_INLINE static constexpr FPType get_fp_type() {
 #if defined(LIBC_TYPES_HAS_FLOAT16)
   else if constexpr (cpp::is_same_v<UnqualT, float16>)
     return FPType::IEEE754_Binary16;
+#endif
+#if defined(LIBC_TYPES_HAS_BFLOAT16)
+  else if constexpr (cpp::is_same_v<UnqualT, bfloat16>)
+    return FPType::Brain_Binray16;
 #endif
 #if defined(LIBC_TYPES_HAS_FLOAT128)
   else if constexpr (cpp::is_same_v<UnqualT, float128>)

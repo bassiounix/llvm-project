@@ -152,6 +152,7 @@ add_header_macro(
   DEPENDS
     .llvm_libc_common_h
     .llvm-libc-macros.float16_macros
+    .llvm-libc-macros.bfloat16_macros
     .llvm-libc-macros.math_macros
     .llvm-libc-macros.math_function_macros
     .llvm-libc-types.double_t
